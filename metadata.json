@@ -1,0 +1,8 @@
+{
+  "name": "Work Journal AI",
+  "description": "A personal knowledge base that combines daily journaling with a powerful, conversational AI query interface, allowing you to interrogate your own notes using natural language.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}

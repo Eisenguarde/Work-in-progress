@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#d97706" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Work Journal" />
+    <title>Work Journal AI</title>
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Source Sans 3', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .font-serif {
+        font-family: 'Lora', serif;
+      }
+      /* Styles for rendered markdown content */
+      .prose p {
+        margin-bottom: 1rem;
+      }
+      .prose strong {
+        font-weight: 600;
+        color: #292524; /* stone-800 */
+      }
+      .dark .prose strong {
+        color: #e7e5e4; /* stone-200 */
+      }
+      .prose em {
+        font-style: italic;
+      }
+      .prose ul, .prose ol {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+      .prose ul {
+        list-style-type: disc;
+      }
+      .prose ol {
+        list-style-type: decimal;
+      }
+      .prose li {
+        margin-top: 0.25rem;
+      }
+      .prose > :first-child {
+        margin-top: 0;
+      }
+      .prose > :last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "marked": "https://cdn.jsdelivr.net/npm/marked@13.0.0/lib/marked.esm.js"
+  }
+}
+</script>
+</head>
+  <body class="bg-stone-100 dark:bg-stone-900 overscroll-none">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+          }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
